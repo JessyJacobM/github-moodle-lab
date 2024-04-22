@@ -114,10 +114,6 @@
       <param name="beanName" value="ViewDwr"/>
       <filter class="com.serotonin.mango.web.dwr.util.LoggedInAjaxMethodFilter"/>
     </create>
-    <create creator="spring" javascript="LandingPageDwr">
-      <param name="beanName" value="LandingPageDwr"/>
-      <filter class="com.serotonin.mango.web.dwr.util.LoggedInAjaxFilter"/>
-    </create>    
     <create creator="spring" javascript="WatchListDwr">
       <param name="beanName" value="WatchListDwr"/>
       <filter class="com.serotonin.mango.web.dwr.util.LoggedInAjaxFilter"/>

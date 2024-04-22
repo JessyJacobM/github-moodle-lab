@@ -33,12 +33,6 @@ public class ReportPointInfo {
     private TextRenderer textRenderer;
     private String colour;
     private boolean consolidatedChart;
-    //newly added properties
-    private boolean chartType;
-    private String title;
-    private String xlabel;
-    private String ylabel;
-    private double yref;
 
     public String getExtendedName() {
         return deviceName + " - " + pointName;
@@ -106,46 +100,5 @@ public class ReportPointInfo {
 
     public void setConsolidatedChart(boolean consolidatedChart) {
         this.consolidatedChart = consolidatedChart;
-    }
-
-    //newly added getter and setter functions
-    public boolean isChartType() {
-        return chartType;
-    }
-
-    public void setChartType(boolean chartType) {
-        this.chartType = chartType;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }    
-    
-    public String getXlabel() {
-        return xlabel;
-    }
-
-    public void setXlabel(String xlabel) {
-        this.xlabel = xlabel;
-    }    
-    
-    public String getYlabel() {
-        return ylabel;
-    }
-
-    public void setYlabel(String ylabel) {
-        this.ylabel = ylabel;
-    }
-    
-    public double getYref() {
-        return yref;
-    }
-
-    public void setYref(double yref) {
-        this.yref = yref;
     }
 }

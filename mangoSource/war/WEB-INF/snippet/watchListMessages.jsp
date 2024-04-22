@@ -26,7 +26,6 @@
 <c:if test="${pointRT.attributes.UNRELIABLE}">
   <tag:img png="warn" title="common.valueUnreliable"/> <fmt:message key="common.valueUnreliable"/>
   <tag:img png="arrow_refresh" title="common.refresh" onclick="WatchListDwr.forcePointRead(${point.id})"/><br/>
-  <tag:img png="arrow_refresh" title="common.refresh" onclick="LandingPageDwr.forcePointRead(${point.id})"/><br/> <%-- new line added for the landing page --%>
 </c:if>
 <c:forEach items="${events}" var="event">
   <tag:eventIcon event="${event}"/>

@@ -108,7 +108,6 @@
     <tr>
       <td style="cursor:default" >
         <c:if test="${!empty sessionUser}">
-          <tag:menuItem href="landing_page.shtm" png="landing_page" key="header.landingpage"/> <%--new icon image and url for landingpage--%>
           <tag:menuItem href="watch_list.shtm" png="eye" key="header.watchlist"/>
           <tag:menuItem href="views.shtm" png="icon_view" key="header.views"/>
           <tag:menuItem href="events.shtm" png="flag_white" key="header.alarms"/>

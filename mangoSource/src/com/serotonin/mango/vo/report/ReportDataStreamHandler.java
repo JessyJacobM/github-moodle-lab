@@ -35,10 +35,7 @@ public interface ReportDataStreamHandler {
      * 
      * @param rdv
      */
-    
     void pointData(ReportDataValue rdv);
-
-
 
     /**
      * Indicates that the last of the information has been sent, i.e. the other methods will no longer be called. Useful

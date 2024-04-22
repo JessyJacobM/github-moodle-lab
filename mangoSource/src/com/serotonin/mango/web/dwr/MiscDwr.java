@@ -75,12 +75,10 @@ public class MiscDwr extends BaseDwr {
     private static final String LONG_POLL_DATA_KEY = "LONG_POLL_DATA";
     private static final String LONG_POLL_DATA_TIMEOUT_KEY = "LONG_POLL_DATA_TIMEOUT";
 
-    private final LandingPageDwr landingPageDwr = new LandingPageDwr();//landing page dwr initiated
     private final WatchListDwr watchListDwr = new WatchListDwr();
     private final DataPointDetailsDwr dataPointDetailsDwr = new DataPointDetailsDwr();
     private final ViewDwr viewDwr = new ViewDwr();
     private final CustomViewDwr customViewDwr = new CustomViewDwr();
-    
 
     public DwrResponseI18n toggleSilence(int eventId) {
         DwrResponseI18n response = new DwrResponseI18n();
@@ -266,7 +264,7 @@ public class MiscDwr extends BaseDwr {
     public String getHomeUrl() {
         String url = Common.getUser().getHomeUrl();
         if (StringUtils.isEmpty(url))
-            url = "landing_page.shtm";//successUrl updated to landing page's url
+            url = "watch_list.shtm";
         return url;
     }
 
@@ -320,30 +318,6 @@ public class MiscDwr extends BaseDwr {
             if (pollRequest.isWatchList() && user != null) {
                 synchronized (state) {
                     List<WatchListState> newStates = watchListDwr.getPointData();
-                    List<WatchListState> differentStates = new ArrayList<WatchListState>();
-
-                    for (WatchListState newState : newStates) {
-                        WatchListState oldState = state.getWatchListState(newState.getId());
-                        if (oldState == null)
-                            differentStates.add(newState);
-                        else {
-                            WatchListState copy = newState.clone();
-                            copy.removeEqualValue(oldState);
-                            if (!copy.isEmpty())
-                                differentStates.add(copy);
-                        }
-                    }
-
-                    if (!differentStates.isEmpty()) {
-                        response.put("watchListStates", differentStates);
-                        state.setWatchListStates(newStates);
-                    }
-                }
-            }
-            
-            if (pollRequest.isWatchList() && user != null) {
-                synchronized (state) {
-                    List<WatchListState> newStates = landingPageDwr.getPointData();
                     List<WatchListState> differentStates = new ArrayList<WatchListState>();
 
                     for (WatchListState newState : newStates) {

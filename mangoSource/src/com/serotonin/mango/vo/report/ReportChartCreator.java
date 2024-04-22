@@ -147,10 +147,7 @@ public class ReportChartCreator {
             if (ptsc.hasData()) {
                 if (inlinePrefix != null)
                     model.put("chartName", inlinePrefix + pointStat.getChartName());
-
-                                    
-                pointStat.setImageData(ImageChartUtils.getChartData(ptsc, POINT_IMAGE_WIDTH, POINT_IMAGE_HEIGHT, pointStat.isChartType(), pointStat.getTitle(), pointStat.getXlabel(), pointStat.getYlabel(), pointStat.getYref()));
-                //getchartData updated with all parameters
+                pointStat.setImageData(ImageChartUtils.getChartData(ptsc, POINT_IMAGE_WIDTH, POINT_IMAGE_HEIGHT));
             }
         }
 
@@ -286,12 +283,6 @@ public class ReportChartCreator {
         private Color numericTimeSeriesColor;
         private DiscreteTimeSeries discreteTimeSeries;
         private byte[] imageData;
-        //newly added properties
-        private boolean chartType;
-        private String title;
-        private String xlabel;
-        private String ylabel;
-        private double yref;
 
         public PointStatistics(int reportPointId) {
             this.reportPointId = reportPointId;
@@ -430,46 +421,6 @@ public class ReportChartCreator {
         public String getChartName() {
             return "reportPointChart" + reportPointId + ".png";
         }
-        //newly added getter and setter functions
-        public boolean isChartType() {
-            return chartType;
-        }
-    
-        public void setChartType(boolean chartType) {
-            this.chartType = chartType;
-        }
-    
-        public String getTitle() {
-            return title;
-        }
-    
-        public void setTitle(String title) {
-            this.title = title;
-        }    
-        
-        public String getXlabel() {
-            return xlabel;
-        }
-    
-        public void setXlabel(String xlabel) {
-            this.xlabel = xlabel;
-        }    
-        
-        public String getYlabel() {
-            return ylabel;
-        }
-    
-        public void setYlabel(String ylabel) {
-            this.ylabel = ylabel;
-        }
-        
-        public double getYref() {
-            return yref;
-        }
-    
-        public void setYref(double yref) {
-            this.yref = yref;
-        }        
     }
 
     public static class StartsAndRuntimeWrapper {
@@ -521,7 +472,7 @@ public class ReportChartCreator {
             try {
                 if (createExportFile) {
                     exportFile = File.createTempFile("tempCSV", ".csv");
-                    reportCsvStreamer = new ReportCsvStreamer(new PrintWriter(new FileWriter(exportFile)), bundle, true);
+                    reportCsvStreamer = new ReportCsvStreamer(new PrintWriter(new FileWriter(exportFile)), bundle);
                 }
             }
             catch (IOException e) {
@@ -549,11 +500,6 @@ public class ReportChartCreator {
             if (pointInfo.getStartValue() != null)
                 point.setStartValue(pointInfo.getTextRenderer().getText(pointInfo.getStartValue(),
                         TextRenderer.HINT_FULL));
-            point.setChartType(pointInfo.isChartType()); //newly addded properties
-            point.setTitle(pointInfo.getTitle());
-            point.setXlabel(pointInfo.getXlabel());
-            point.setYlabel(pointInfo.getYlabel());
-            point.setYref(pointInfo.getYref());            
             pointStatistics.add(point);
 
             Color colour = null;

@@ -38,7 +38,6 @@
         <td style="white-space:nowrap;" colspan="3">
           <fmt:message key="common.valueUnreliable"/>
           <tag:img png="arrow_refresh" title="common.refresh" onclick="WatchListDwr.forcePointRead(${point.id})" style="display:inline"/>
-          <tag:img png="arrow_refresh" title="common.refresh" onclick="LandingPageDwr.forcePointRead(${point.id})" style="display:inline"/> <%-- new line added for the landing page --%>
         </td>
       </tr>
     </c:if>

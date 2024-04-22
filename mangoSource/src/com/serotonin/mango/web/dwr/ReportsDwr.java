@@ -183,7 +183,7 @@ public class ReportsDwr extends BaseDwr {
 
         // Basic validation
         validateData(response, name, points, dateRangeType, relativeDateType, previousPeriodCount, pastPeriodCount);
- 
+
         if (!response.getHasMessages()) {
             ReportVO report = new ReportVO();
             report.setName(name);

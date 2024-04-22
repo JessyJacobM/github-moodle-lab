@@ -69,7 +69,6 @@
         <prop key="/views.shtm">viewsController</prop>
         <prop key="/view_edit.shtm">viewEditController</prop>
         <prop key="/watch_list.shtm">watchListController</prop>
-        <prop key="/landing_page.shtm">landingPageController</prop>
         <prop key="/webcam_live_feed.htm">webcamLiveFeedController</prop>
         
         <!-- Mobile user URLs -->
@@ -136,7 +135,7 @@
     <property name="commandName"><value>login</value></property>
     <property name="commandClass"><value>com.serotonin.mango.web.mvc.form.LoginForm</value></property>
     <property name="formView"><value>login</value></property>
-    <property name="successUrl"><value>landing_page.shtm</value></property>
+    <property name="successUrl"><value>watch_list.shtm</value></property>
     <property name="newUserUrl"><value>help.shtm</value></property>
     <property name="bindOnNewForm"><value>true</value></property>
   </bean>
@@ -228,10 +227,6 @@
   
   <bean id="watchListController" class="com.serotonin.mango.web.mvc.controller.WatchListController">
     <property name="viewName"><value>watchList</value></property>
-  </bean>
-
-  <bean id="landingPageController" class="com.serotonin.mango.web.mvc.controller.LandingPageController">
-    <property name="viewName"><value>landingPage</value></property>
   </bean>
   
   <bean id="webcamLiveFeedController" class="com.serotonin.mango.web.mvc.controller.WebcamLiveFeedController">
